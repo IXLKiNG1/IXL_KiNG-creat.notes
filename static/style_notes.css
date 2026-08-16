@@ -1,0 +1,362 @@
+/* =========================================================
+   صفحة المذكرة
+   ========================================================= */
+
+
+.temporary-note {
+
+    width: 80%;
+
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background-color: rgba(255, 243, 163, 0.92);
+
+    border: 2px solid #656616;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* =========================================================
+   المذكرة الدائمة
+   ========================================================= */
+
+
+.permanent-note {
+
+    width: 80%;
+
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background-color: rgba(184, 230, 184, 0.92);
+
+    border: 2px solid #4d824d;
+
+    border-radius: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+.permanent-note legend {
+
+    padding: 0 15px;
+
+}
+
+
+.permanent-note h1 {
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   المذكرة الطويلة
+   ========================================================= */
+
+
+header {
+
+    background:
+        linear-gradient(135deg,
+            #8d6802 0%,
+            #bd851d 50%,
+            #8d6802b4 100%);
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    border-bottom: 3px solid #bd851d;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+header::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+
+    left: -50%;
+
+    width: 200%;
+
+    height: 200%;
+
+    background:
+        radial-gradient(circle,
+            rgba(211, 145, 23, 0.28) 0%,
+            transparent 70%);
+
+    animation: pulse 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+section {
+
+    font-size: 22px;
+
+    color: #f5d59a;
+
+    background: rgba(73, 26, 5, 0.95);
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    margin: 20px auto;
+
+    max-width: 1150px;
+
+    line-height: 1.8;
+
+    box-sizing: border-box;
+}
+
+
+.note-content {
+
+    white-space: pre-wrap;
+
+    overflow-wrap: break-word;
+
+    word-break: break-word;
+
+}
+
+
+.note-dates {
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    line-height: 2;
+}
+
+
+/* =========================================================
+   التواريخ
+   ========================================================= */
+
+
+.note-date {
+
+    margin: 10px 0;
+
+    font-size: 14px;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   حالة التثبيت
+   ========================================================= */
+
+
+.pinned-status {
+
+    font-size: 16px;
+
+    margin: 10px 0;
+
+    font-weight: bold;
+}
+
+
+.pin-container {
+
+    text-align: center;
+
+    margin: 20px;
+}
+
+
+/* =========================================================
+   الأزرار
+   ========================================================= */
+
+
+.note-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 25px 0;
+
+    flex-wrap: wrap;
+}
+
+
+.note-actions form {
+
+    margin: 0;
+}
+
+
+.note-actions button,
+.back-button {
+
+    padding: 10px 16px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+.back-button {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    background-color: #eee;
+
+    color: #333;
+}
+
+
+/* =========================================================
+   Footer للمذكرة الطويلة
+   ========================================================= */
+
+
+footer {
+
+    background:
+        linear-gradient(135deg,
+            #493704 0%,
+            #7c5712d5 50%,
+            #493704 100%);
+
+    color: #ffd700;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    border-top: 3px solid #daa520;
+
+    font-size: 1.2rem;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   الهاتف
+   ========================================================= */
+
+
+@media (max-width: 600px) {
+
+    .temporary-note,
+    .permanent-note {
+
+        width: 92%;
+
+        margin: 20px auto;
+
+        padding: 15px;
+
+    }
+
+
+    .temporary-note h1,
+    .permanent-note h1 {
+
+        font-size: 24px;
+
+    }
+
+
+    .note-content {
+
+        font-size: 16px;
+
+    }
+
+
+    section {
+
+        width: 92%;
+
+        padding: 20px;
+
+        font-size: 18px;
+
+    }
+
+
+    .note-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .note-actions button,
+    .back-button {
+
+        width: 200px;
+
+        box-sizing: border-box;
+
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+    }
+
+}

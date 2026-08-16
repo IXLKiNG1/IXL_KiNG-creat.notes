@@ -1,0 +1,198 @@
+/* =========================================================
+   القواعد المشتركة لكل الصفحات
+   ========================================================= */
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    min-height: 100vh;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    font-family:
+        Arial,
+        Tahoma,
+        sans-serif;
+
+    color: #222;
+}
+
+
+/* =========================================================
+   العناوين
+   ========================================================= */
+
+
+h1 {
+    text-align: center;
+}
+
+
+h4 {
+    text-align: center;
+}
+
+
+p {
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   النماذج
+   ========================================================= */
+
+
+form {
+    text-align: center;
+}
+
+
+/* =========================================================
+   الأزرار
+   ========================================================= */
+
+
+button {
+
+    text-align: center;
+
+    background-color: #d1c737;
+
+    color: #5a5a05;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+button:hover {
+
+    transform: translateY(-2px) scale(1.03);
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+/* =========================================================
+   العناصر العامة
+   ========================================================= */
+
+
+div {
+    text-align: center;
+}
+
+
+/* =========================================================
+   زر الإعدادات
+   ========================================================= */
+
+
+.settings-card {
+
+    display: inline-block;
+
+    text-align: center;
+
+    margin: 15px;
+
+    padding: 10px 16px;
+
+    border-radius: 12px;
+
+    background-color: rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.settings-card a {
+
+    color: #333;
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================================
+   حركة بسيطة
+   ========================================================= */
+
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+}
+
+
+/* =========================================================
+   الهاتف
+   ========================================================= */
+
+
+@media (max-width: 600px) {
+
+    body {
+
+        background-attachment: scroll;
+
+    }
+
+}
