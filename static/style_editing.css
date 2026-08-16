@@ -1,0 +1,190 @@
+/* =========================================================
+   صفحة تعديل المذكرة
+   ========================================================= */
+
+
+/* رأس الصفحة */
+
+header {
+    background: linear-gradient(135deg,
+            #5a4200 0%,
+            #a87618ce 50%,
+            #5a4200 100%);
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    border-bottom: 3px solid #5c410e;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    left: -50%;
+
+    width: 200%;
+    height: 200%;
+
+    background: radial-gradient(circle,
+            rgba(148, 105, 25, 0.42) 0%,
+            transparent 70%);
+
+    animation: pulse 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   التاريخ
+   ========================================================= */
+
+.date-card {
+    width: 90%;
+    max-width: 800px;
+
+    margin: 25px auto;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.78);
+
+    text-align: center;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================================================
+   نموذج التعديل
+   ========================================================= */
+
+.edit-form {
+    width: 90%;
+    max-width: 800px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.edit-form label {
+    width: 90%;
+    max-width: 650px;
+
+    font-weight: bold;
+
+    text-align: right;
+}
+
+.edit-form input[type="text"],
+.edit-form textarea,
+.edit-form select {
+    width: 90%;
+    max-width: 650px;
+
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    border: 1px solid #777;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+}
+
+.edit-form textarea {
+    min-height: 220px;
+
+    resize: vertical;
+
+    line-height: 1.7;
+}
+
+.edit-form button {
+    margin-top: 10px;
+}
+
+.cancel-button {
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    background-color: #eee;
+
+    color: #333;
+}
+
+
+/* =========================================================
+   أنواع المذكرات
+   ========================================================= */
+
+.temporary-option {
+    background-color: #fff3a3;
+}
+
+.permanent-option {
+    background-color: #b8e6b8;
+}
+
+.long-option {
+    background-color: #b9d9ff;
+}
+
+
+/* =========================================================
+   الهاتف
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .edit-form {
+        width: 92%;
+
+        padding: 20px 12px;
+    }
+
+    .edit-form label,
+    .edit-form input[type="text"],
+    .edit-form textarea,
+    .edit-form select {
+        width: 100%;
+    }
+
+    .edit-form textarea {
+        min-height: 180px;
+    }
+
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_notes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_All.css') }}">
+
+    <style>
+        body {
+            background-color: {
+                    {
+                    settings[1]
+                }
+            }
+
+            ;
+        }
+
+            {
+            % if settings[0] !="default" %
+        }
+
+        body {
+            background-image: url("{{ url_for('static', filename=settings[0]) }}");
+        }
+
+            {
+            % endif %
+        }
+    </style>
+
+    <title>{{ note[1] or "مذكرة" }}</title>
+
+</head>
+
+
+<body>
+
+
+    <!-- المظهر -->
+
+    <div class="settings-card">
+
+        <a href="{{ url_for('settings_note') }}">
+            ⚙️ المظهر
+        </a>
+
+    </div>
+
+
+    <!-- التاريخ والتثبيت -->
+
+    <div class="note-top-bar">
+
+        <small>
+            📅 تاريخ الإنشاء: {{ note[4] }}
+        </small>
+
+
+        {% if note[6] == 1 %}
+
+        <span class="pinned-status">
+            📌 مذكرة مثبتة
+        </span>
+
+        {% endif %}
+
+
+        <form action="{{ url_for('toggle_pin') }}" method="post">
+
+            <input type="hidden" name="id" value="{{ note[0] }}">
+
+            {% if note[6] == 1 %}
+
+            <button type="submit">
+                📌 إلغاء تثبيت المذكرة
+            </button>
+
+            {% else %}
+
+            <button type="submit">
+                📌 تثبيت المذكرة
+            </button>
+
+            {% endif %}
+
+        </form>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- المذكرة المؤقتة -->
+    <!-- ================================================= -->
+
+    {% if note[3] == "temporary" %}
+
+    <div class="temporary-note">
+
+        <h1>
+            {{ note[1] or "بدون عنوان" }}
+        </h1>
+
+
+        <p class="note-content">
+            {{ note[2] }}
+        </p>
+
+
+        <div class="note-actions">
+
+            <form action="{{ url_for('edit_page') }}" method="post">
+
+                <input type="hidden" name="id" value="{{ note[0] }}">
+
+                <button type="submit">
+                    ✏️ تعديل
+                </button>
+
+            </form>
+
+
+            <form action="{{ url_for('delete_page') }}" method="post"
+                onsubmit="return confirm('هل أنت متأكد من حذف هذه المذكرة؟')">
+
+                <input type="hidden" name="id" value="{{ note[0] }}">
+
+                <button type="submit">
+                    🗑️ حذف
+                </button>
+
+            </form>
+
+
+            <a href="{{ url_for('home_page') }}" class="back-button">
+                ← العودة للمذكرات
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- المذكرة الدائمة -->
+    <!-- ================================================= -->
+
+    {% elif note[3] == "permanent" %}
+
+    <fieldset class="permanent-note">
+
+        <legend>
+
+            <h1>
+                {{ note[1] or "بدون عنوان" }}
+            </h1>
+
+        </legend>
+
+
+        <p class="note-content">
+            {{ note[2] }}
+        </p>
+
+
+        <div class="note-actions">
+
+            <form action="{{ url_for('edit_page') }}" method="post">
+
+                <input type="hidden" name="id" value="{{ note[0] }}">
+
+                <button type="submit">
+                    ✏️ تعديل
+                </button>
+
+            </form>
+
+        </div>
+
+    </fieldset>
+
+
+    <div class="note-actions">
+
+        <form action="{{ url_for('delete_page') }}" method="post"
+            onsubmit="return confirm('هل أنت متأكد من حذف هذه المذكرة؟')">
+
+            <input type="hidden" name="id" value="{{ note[0] }}">
+
+            <button type="submit">
+                🗑️ حذف
+            </button>
+
+        </form>
+
+
+        <a href="{{ url_for('home_page') }}" class="back-button">
+            ← العودة للمذكرات
+        </a>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- المذكرة الطويلة -->
+    <!-- ================================================= -->
+
+    {% elif note[3] == "long" %}
+
+    <header>
+
+        <h1>
+            {{ note[1] or "بدون عنوان" }}
+        </h1>
+
+    </header>
+
+
+    <main>
+
+        <section class="long-note-section">
+
+            <p class="note-content">
+                {{ note[2] }}
+            </p>
+
+
+            <div class="note-dates">
+
+                <small>
+                    📅 تاريخ الإنشاء: {{ note[4] }}
+                </small>
+
+                <small>
+                    ✏️ آخر تعديل: {{ note[5] }}
+                </small>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <form action="{{ url_for('edit_page') }}" method="post">
+
+            <input type="hidden" name="id" value="{{ note[0] }}">
+
+            <button type="submit">
+                ✏️ تعديل
+            </button>
+
+        </form>
+
+
+        <a href="{{ url_for('home_page') }}" class="back-button">
+            ← العودة للمذكرات
+        </a>
+
+
+        <form action="{{ url_for('delete_page') }}" method="post"
+            onsubmit="return confirm('هل أنت متأكد من حذف هذه المذكرة؟')">
+
+            <input type="hidden" name="id" value="{{ note[0] }}">
+
+            <button type="submit">
+                🗑️ حذف
+            </button>
+
+        </form>
+
+    </footer>
+
+    {% endif %}
+
+
+</body>
+
+</html>
