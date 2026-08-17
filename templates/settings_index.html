@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_settings.css') }}">
+
+    <title>إعدادات الصفحة الرئيسية</title>
+
+</head>
+
+
+<body>
+
+
+    <h1>
+        🎨 مظهر الصفحة الرئيسية
+    </h1>
+
+
+    <form action="{{ url_for('save_settings_index') }}" method="post" enctype="multipart/form-data">
+
+
+        <h3>
+            اختر الخلفية
+        </h3>
+
+
+        <div class="background-options">
+
+
+            <label class="background-option">
+
+                <input type="radio" name="background" value="default" {% if settings[0]=="default" %} checked {% endif
+                    %}>
+
+                <span>
+                    بدون صورة
+                </span>
+
+            </label>
+
+
+            <label class="background-option">
+
+                <input type="radio" name="background" value="img/BG1 app_Not.jpg" {% if
+                    settings[0]=="img/BG1 app_Not.jpg" %} checked {% endif %}>
+
+
+                <img src="{{ url_for('static', filename='img/BG1 app_Not.jpg') }}" alt="الخلفية 1">
+
+
+                <span>
+                    الخلفية 1
+                </span>
+
+            </label>
+
+
+            <label class="background-option">
+
+                <input type="radio" name="background" value="img/BG6 app_Not.jpg" {% if
+                    settings[0]=="img/BG6 app_Not.jpg" %} checked {% endif %}>
+
+
+                <img src="{{ url_for('static', filename='img/BG6 app_Not.jpg') }}" alt="الخلفية 2">
+
+
+                <span>
+                    الخلفية 2
+                </span>
+
+            </label>
+
+
+        </div>
+
+
+        <h3>
+            أو اختر صورة من جهازك
+        </h3>
+
+
+        <input type="file" name="custom_background" accept="image/*">
+
+
+        <h3>
+            لون الخلفية
+        </h3>
+
+
+        <input type="color" name="background_color" value="{{ settings[1] }}">
+
+
+        <br><br>
+
+
+        <button type="submit">
+            💾 حفظ المظهر
+        </button>
+
+
+    </form>
+
+
+    <br>
+
+
+    <a href="{{ url_for('home_page') }}">
+        ↩️ العودة للمذكرات
+    </a>
+
+
+</body>
+
+</html>
